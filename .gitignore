@@ -6,8 +6,3 @@
 /var/log/*
 /var/session/*
 /public/typo3conf/LocalConfiguration.php
-# allow some extensions
-!/public/typo3conf/ext/dce
-!/public/typo3conf/ext/jd_ogmeta
-!/public/typo3conf/ext/rte_config
-!/public/typo3conf/ext/prefix_*
