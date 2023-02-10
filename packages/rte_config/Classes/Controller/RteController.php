@@ -21,7 +21,7 @@ class RteController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * rteRepository
      *
      * @var \JamonDigital\RteConfig\Domain\Repository\RteRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $rteRepository = null;
 

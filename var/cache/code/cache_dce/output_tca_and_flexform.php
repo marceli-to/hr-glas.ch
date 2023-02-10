@@ -1,10 +1,7 @@
 <?php
 
-$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
-    0 => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce_long',
-    1 => '--div--'
-];
-$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
+$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['itemGroups']['dce'] =
+    'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce_long';$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
     0 => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce.miscellaneous',
     1 => '--div--'
 ];

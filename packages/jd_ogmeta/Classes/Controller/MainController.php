@@ -52,7 +52,7 @@ class MainController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
      * mainRepository
      *
      * @var \Jamondigital\JdOgmeta\Domain\Repository\MainRepository
-     * @inject
+     * @TYPO3\CMS\Extbase\Annotation\Inject
      */
     protected $mainRepository = null;
 

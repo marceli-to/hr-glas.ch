@@ -11,9 +11,6 @@ return [
         'core' => [
             'packagePath' => 'typo3/sysext/core/',
         ],
-        'scheduler' => [
-            'packagePath' => 'typo3/sysext/scheduler/',
-        ],
         'extbase' => [
             'packagePath' => 'typo3/sysext/extbase/',
         ],
@@ -47,6 +44,9 @@ return [
         'reports' => [
             'packagePath' => 'typo3/sysext/reports/',
         ],
+        'redirects' => [
+            'packagePath' => 'typo3/sysext/redirects/',
+        ],
         'setup' => [
             'packagePath' => 'typo3/sysext/setup/',
         ],
@@ -73,9 +73,6 @@ return [
         ],
         'info' => [
             'packagePath' => 'typo3/sysext/info/',
-        ],
-        'redirects' => [
-            'packagePath' => 'typo3/sysext/redirects/',
         ],
         'seo' => [
             'packagePath' => 'typo3/sysext/seo/',

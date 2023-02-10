@@ -27,14 +27,7 @@ return [
             ],
         ],
     ],
-    'EXT' => [
-        'extConf' => [
-            'backend' => 'a:6:{s:9:"loginLogo";s:0:"";s:19:"loginHighlightColor";s:0:"";s:20:"loginBackgroundImage";s:0:"";s:13:"loginFootnote";s:0:"";s:11:"backendLogo";s:0:"";s:14:"backendFavicon";s:0:"";}',
-            'extensionmanager' => 'a:2:{s:21:"automaticInstallation";s:1:"1";s:11:"offlineMode";s:1:"0";}',
-            'jd_ogmeta' => 'a:4:{s:8:"siteName";s:0:"";s:15:"pageTitleSuffix";s:0:"";s:21:"defaultOpenGraphImage";s:0:"";s:22:"defaultMetaDescription";s:0:"";}',
-            'scheduler' => 'a:2:{s:11:"maxLifetime";s:4:"1440";s:15:"showSampleTasks";s:1:"1";}',
-        ],
-    ],
+    'EXT' => [],
     'EXTCONF' => [
         'lang' => [
             'availableLanguages' => [
@@ -61,10 +54,6 @@ return [
             'pageTitleSuffix' => '',
             'siteName' => '',
         ],
-        'scheduler' => [
-            'maxLifetime' => '1440',
-            'showSampleTasks' => '1',
-        ],
     ],
     'FE' => [
         'debug' => true,
@@ -75,6 +64,7 @@ return [
         ],
     ],
     'GFX' => [
+        'gdlib' => true,
         'processor' => 'ImageMagick',
         'processor_allowTemporaryMasksAsPng' => false,
         'processor_colorspace' => 'sRGB',
@@ -116,7 +106,6 @@ return [
             'unifiedPageTranslationHandling' => true,
         ],
         'sitename' => 'HR Glas',
-        'systemLogLevel' => 0,
         'systemMaintainers' => [
             1,
         ],
