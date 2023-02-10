@@ -10,15 +10,15 @@ lib.contentBlock {
 }
 
 
-lib.seoBlock = COA
-lib.seoBlock {
-	1 < styles.content.get
-	1.slide = -1
-	1.select.where = colPos=99
-	1 {
-		wrap = |
-	}	
-}
+# lib.seoBlock = COA
+# lib.seoBlock {
+# 	1 < styles.content.get
+# 	1.slide = -1
+# 	1.select.where = colPos=99
+# 	1 {
+# 		wrap = |
+# 	}	
+# }
 
 # Visual
 lib.visualBlock = COA
