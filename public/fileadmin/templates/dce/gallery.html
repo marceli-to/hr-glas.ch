@@ -1,0 +1,35 @@
+
+<section class="content-section" data-reveal>
+  <div class="teaser-boxes grid-teaser">
+	  <f:for each="{field.elements}" as="element">
+		<f:if condition="{element.type} == 0">
+			<f:then>
+				<figure class="teaser-box teaser-box--image teaser-box--hover">
+					<f:for each="{element.image}" as="img">
+						<a data-fancybox="gallery" href="{f:uri.image(image: '{img}', maxWidth: '1200c', maxHeight: '900c')}">
+							<f:image image="{img}" alt="" width="700c" height="700c" alt="{element.alt}" />
+						</a>
+					</f:for>	
+				</figure>	  	
+			</f:then>
+			<f:else>
+				<div class="teaser-box teaser-box--cta">
+				  <div>
+					<f:if condition="{element.title}">
+				    	<h2>{element.title}</h2>
+					</f:if>
+					<f:if condition="{element.text}">
+					    <p>{element.text}</p>
+					</f:if>
+					<f:if condition="{element.link}">
+					    <f:link.typolink parameter="{element.link}" class="btn-primary" title="{element.btnText}">
+					    	{element.btnText}
+					    </f:link.typolink>
+					</f:if>
+				  </div>
+				</div>	  	
+			</f:else>
+		</f:if>
+	  </f:for>
+  </div>
+</section>

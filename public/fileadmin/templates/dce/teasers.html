@@ -1,0 +1,20 @@
+
+<section class="content-section" data-reveal>
+  <article class="content-heading">
+    <h2>{field.title}</h2>
+  </article>
+  <div class="teaser-boxes grid-teaser">
+	<f:for each="{field.teasers}" as="teaser">
+	    <figure class="teaser-box teaser-box--image">
+		    <f:link.typolink parameter="{teaser.link}" title="{teaser.title}">
+		    	<f:for each="{teaser.image}" as="img">
+					<f:image image="{img}" alt="" width="700c" height="700c" alt="{teaser.title}" />
+				</f:for>	    
+				<figcaption>
+					<h3>{teaser.title}</h3>
+				</figcaption>
+		    </f:link.typolink>
+	    </figure>
+	</f:for>
+  </div>
+</section>

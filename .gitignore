@@ -1,0 +1,9 @@
+/vendor/*
+/public/index.php
+/public/typo3/*
+/public/typo3conf/ext/*
+# allow some extensions
+!/public/typo3conf/ext/dce
+!/public/typo3conf/ext/jd_ogmeta
+!/public/typo3conf/ext/rte_config
+!/public/typo3conf/ext/prefix_*

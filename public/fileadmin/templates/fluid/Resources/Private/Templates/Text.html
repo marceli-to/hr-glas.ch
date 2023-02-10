@@ -1,0 +1,14 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Article" />
+<f:section name="Main">
+	<section class="content-section" data-reveal>
+	  <article class="content-text">
+	    <f:render section="Header" optional="true">
+			<f:render partial="Header/All" arguments="{_all}" />
+		</f:render>
+		<f:format.html>{data.bodytext}</f:format.html>
+	  </article>
+	  <hr>
+	</section>
+</f:section>
+</html>

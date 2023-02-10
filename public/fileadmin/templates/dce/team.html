@@ -1,0 +1,23 @@
+
+<section class="content-section" data-reveal>
+  <article class="content-heading">
+    <h2>{field.title}</h2>
+  </article>
+  <div class="team">
+  	<f:for each="{field.teammembers}" as="member">
+	    <div class="team__item grid-team">
+	      <figure>
+	    	<f:for each="{member.image}" as="img">
+				<f:image image="{img}" alt="" width="1080c" height="525c" alt="{member.name}" />
+			</f:for>	
+	      </figure>
+	      <div>
+	        <div>
+	          <h3>{member.name}</h3>
+	          <p>{member.text}</p>
+	        </div>
+	      </div>
+	    </div>
+  	</f:for>
+  </div>
+</section>

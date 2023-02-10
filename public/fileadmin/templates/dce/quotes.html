@@ -1,0 +1,20 @@
+
+<section class="quotes" data-reveal-delay>
+	<div>
+	  <div class="swiper-container">
+	    <div class="swiper-wrapper">
+		  <f:for each="{field.quotes}" as="quote">
+		      <div class="swiper-slide quote">
+		        <div>
+		          <div>
+		            «{quote.text}»
+		            <span>{quote.author}</span>
+		          </div>
+		        </div>
+		      </div>
+		  </f:for>
+	    </div>
+	  </div>
+	</div>
+</section>
+

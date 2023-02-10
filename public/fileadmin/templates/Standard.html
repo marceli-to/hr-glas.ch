@@ -1,0 +1,9 @@
+<f:layout name="main" />
+<f:section name="body">
+	<f:render partial="Header" arguments="{_all}" />
+	<main role="main">
+		<f:format.raw>{contentBlock}</f:format.raw>
+		<f:format.raw>{quotesBlock}</f:format.raw>
+	</main>
+	<f:render partial="footer" arguments="{_all}" />
+</f:section>
