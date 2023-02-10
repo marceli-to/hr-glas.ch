@@ -5,6 +5,7 @@
 .DS_Store
 /var/log/*
 /var/session/*
+/public/typo3conf/LocalConfiguration.php
 # allow some extensions
 !/public/typo3conf/ext/dce
 !/public/typo3conf/ext/jd_ogmeta
