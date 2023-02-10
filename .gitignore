@@ -2,6 +2,9 @@
 /public/index.php
 /public/typo3/*
 /public/typo3conf/ext/*
+.DS_Store
+/var/log/*
+/var/session/*
 # allow some extensions
 !/public/typo3conf/ext/dce
 !/public/typo3conf/ext/jd_ogmeta
