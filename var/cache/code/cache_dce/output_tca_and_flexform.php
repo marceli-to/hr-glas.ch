@@ -1,7 +1,10 @@
 <?php
 
-$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['itemGroups']['dce'] =
-    'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce_long';$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
+$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
+    0 => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce_long',
+    1 => '--div--'
+];
+$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
     0 => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce.miscellaneous',
     1 => '--div--'
 ];
@@ -12,13 +15,12 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['itemGroups']['dce']
         'Gallery',
         'dce_gallery',
         'content-textpic',
-        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_gallery'] = 'content-textpic';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_gallery'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_gallery'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_gallery'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.elements><title><![CDATA[Elemente]]></title><tx_templatevoila><title><![CDATA[Elemente]]></title></tx_templatevoila><section>1</section><type>array</type><el><container_elements><type>array</type><title><![CDATA[Element]]></title><tx_templatevoila><title><![CDATA[Elemente]]></title></tx_templatevoila><el><image><TCEforms><label><![CDATA[Bild]]></label><config>
 	<type>group</type>
@@ -108,13 +110,12 @@ $GLOBALS['TCA']['tt_content']['palettes']['dce_palette_dce_gallery']['showitem']
         'Teasers',
         'dce_teasers0',
         'content-textpic',
-        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_teasers0'] = 'content-textpic';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_teasers0'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_teasers0'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_teasers0'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.title><TCEforms><label><![CDATA[Titel]]></label><config>
 	<type>input</type>
@@ -178,13 +179,12 @@ $GLOBALS['TCA']['tt_content']['palettes']['dce_palette_dce_teasers0']['showitem'
         'Team',
         'dce_team',
         'content-textpic',
-        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_team'] = 'content-textpic';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_team'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_team'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_team'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.title><TCEforms><label><![CDATA[Titel]]></label><config>
 	<type>input</type>
@@ -238,13 +238,12 @@ $GLOBALS['TCA']['tt_content']['palettes']['dce_palette_dce_team']['showitem'] = 
         'Visual',
         'dce_visual',
         'content-textpic',
-        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_visual'] = 'content-textpic';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_visual'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_visual'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_visual'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.image><TCEforms><label><![CDATA[Bild]]></label><config>
 	<type>inline</type>
@@ -330,13 +329,12 @@ $GLOBALS['TCA']['tt_content']['palettes']['dce_palette_dce_visual']['showitem'] 
         'Quotes',
         'dce_quotes',
         'content-special-html',
-        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_quotes'] = 'content-special-html';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_quotes'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_quotes'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_quotes'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.quotes><title><![CDATA[Quotes]]></title><tx_templatevoila><title><![CDATA[Quotes]]></title></tx_templatevoila><section>1</section><type>array</type><el><container_quotes><type>array</type><title><![CDATA[Quote]]></title><tx_templatevoila><title><![CDATA[Quotes]]></title></tx_templatevoila><el><text><TCEforms><label><![CDATA[Zitat]]></label><config>
 	<type>text</type>

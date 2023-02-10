@@ -166,17 +166,35 @@ the f:cObject view helper from within the templates, so we modify this lib:
 Include detail pages to XML sitemap (EXT:seo)
 =============================================
 
-Since DCE 2.9 there is a detailpage XML sitemap data provider shipped, which adds DCE content elements with
-detailpages to XML sitemap, automatically.
-
-You just need to adjust the default EXT:seo TypoScript configuration like this:
+The following TypoScript snippet, shows an example of how you can configure the XML sitemap in EXT:seo.
 
 .. code-block:: typoscript
 
-    plugin.tx_seo.config.xmlSitemap.sitemaps.pages.provider = T3\Dce\Seo\XmlSitemap\DetailPagesXmlSitemapDataProvider
+    plugin.tx_seo {
+      config {
+       xmlSitemap {
+          sitemaps {
+             detailDceUid {
+                provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                config {
+                   table = tt_content
+                   sortField = sorting
+                   lastModifiedField = tstamp
+                   additionalWhere = AND tx_dce_slug != ""
+                   pid = 1
+                   recursive = 0
+                   url {
+                      pageId = 1
+                      fieldToParameterMap {
+                         uid = detailDceUid
+                      }
+                   }
+                }
+             }
+          }
+        }
+      }
+    }
 
-
-Then, DCE content elements with detailpage enabled will also provide an entry in XML sitemap pages section.
-Priority and change frequency is taken from the page record, where the DCE is located on.
-
-Special Thanks to **Silverback** (https://silverback.st/) who sponsored this feature!
+When you changed the detailpage identifier (default: "detailDceUid"), you also need to update it in configuration above.
+Also, you need to adjust the options ``pid`` and ``url.pageId``.

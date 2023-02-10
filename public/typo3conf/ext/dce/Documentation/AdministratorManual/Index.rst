@@ -11,7 +11,6 @@ Administrator manual
         :maxdepth: 1
 
         Installation
-        TyposcriptConfiguration
         EditDceButton
         Upgrading
         UpgradeWizards

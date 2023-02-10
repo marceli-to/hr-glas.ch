@@ -63,19 +63,6 @@ class DceRepository extends Repository
         parent::__construct($objectManager);
     }
 
-    public function findByUidIncludingHidden(int $uid): ?Dce
-    {
-        /** @var Typo3QuerySettings $querySettings */
-        $querySettings = GeneralUtility::makeInstance(Typo3QuerySettings::class);
-        $querySettings->setIgnoreEnableFields(true);
-
-        $query = $this->createQuery();
-        $query->setQuerySettings($querySettings);
-        $query->matching($query->equals('uid', $uid));
-
-        return $query->execute()->getFirst();
-    }
-
     /**
      * Returns database DCEs and static DCEs as merged array.
      */
@@ -142,15 +129,9 @@ class DceRepository extends Repository
     /**
      * Returns content element rows based on given DCE object.
      */
-    public function findContentElementsBasedOnDce(Dce $dce, bool $respectEnableFields = true): ?array
+    public function findContentElementsBasedOnDce(Dce $dce): ?array
     {
         $queryBuilder = DatabaseUtility::getConnectionPool()->getQueryBuilderForTable('tt_content');
-
-        if (!$respectEnableFields) {
-            $queryBuilder->getRestrictions()->removeByType(HiddenRestriction::class);
-            $queryBuilder->getRestrictions()->removeByType(StartTimeRestriction::class);
-            $queryBuilder->getRestrictions()->removeByType(EndTimeRestriction::class);
-        }
 
         return $queryBuilder
             ->select('*')
@@ -162,7 +143,7 @@ class DceRepository extends Repository
                 )
             )
             ->execute()
-            ->fetchAll();
+            ->fetchAll() ?? null;
     }
 
     /**
@@ -288,22 +269,6 @@ class DceRepository extends Repository
                 $objects = current($objects);
             }
         }
-
-        if (isset($dceFieldConfiguration['dce_skip_translation']) && !empty($dceFieldConfiguration['dce_skip_translation'])
-            && $contentObject['l18n_parent'] > 0 && $contentObject['sys_language_uid'] > 0
-        ) {
-            // Hides fields in translated elements, when they've got a connection to l18n_parent set (see OutputTcaAndFlexForm::applyDisplayCondForSkipTranslation)
-            // Overwriting those values with connected element's value
-            $parentLangDce = $this->getDceInstance($contentObject['l18n_parent']);
-            $parentLangField = $parentLangDce->getFieldByVariable($dceField->getVariable());
-            if (isset($parentLangField)) {
-                $fieldValue = $parentLangField->getValue();
-                if (isset($objects)) {
-                    $objects = $fieldValue;
-                }
-            }
-        }
-
         if (false === $isSectionField) {
             if (isset($objects)) {
                 $dceField->setValue($objects);
@@ -420,12 +385,12 @@ class DceRepository extends Repository
     ): array {
         $objects = [];
 
-        if ('group' === $dceFieldConfiguration['type'] ?? false) {
-            $className = $dceFieldConfiguration['allowed'] ?? '';
-            $tableNames = GeneralUtility::trimExplode(',', $className, true);
+        if ('group' === $dceFieldConfiguration['type']) {
+            $className = $dceFieldConfiguration['allowed'];
+            $tableNames = GeneralUtility::trimExplode(',', $dceFieldConfiguration['allowed'], true);
         } else {
-            $className = $dceFieldConfiguration['foreign_table'] ?? '';
-            $tableNames = GeneralUtility::trimExplode(',', $className, true);
+            $className = $dceFieldConfiguration['foreign_table'];
+            $tableNames = GeneralUtility::trimExplode(',', $dceFieldConfiguration['foreign_table'], true);
         }
 
         $specialClass = null;
@@ -453,7 +418,7 @@ class DceRepository extends Repository
                 );
                 $fileReferences = $fileRepository->findByRelation(
                     'tt_content',
-                    $dceFieldConfiguration['foreign_match_fields']['fieldname'] ?? '',
+                    $dceFieldConfiguration['foreign_match_fields']['fieldname'],
                     $contentObjectUid
                 );
             } else {
@@ -542,7 +507,7 @@ class DceRepository extends Repository
             }
 
             $queryBuilder = DatabaseUtility::getConnectionPool()->getQueryBuilderForTable($tableName);
-            if ($dceFieldConfiguration['dce_ignore_enablefields'] ?? false) {
+            if ($dceFieldConfiguration['dce_ignore_enablefields']) {
                 $queryBuilder->getRestrictions()->removeAll();
             }
 
@@ -558,8 +523,8 @@ class DceRepository extends Repository
                 ->execute()
                 ->fetchAll();
 
-            $pageRepository = isset($GLOBALS['TSFE']) ? $GLOBALS['TSFE']->sys_page : null;
-            if ($dceFieldConfiguration['dce_enable_autotranslation'] ?? false) {
+            $pageRepository = $GLOBALS['TSFE']->sys_page;
+            if ($dceFieldConfiguration['dce_enable_autotranslation']) {
                 /** @var class-string $pageRepoClassName */
                 $pageRepoClassName = Compatibility::getPageRepositoryClassName();
                 if (!$pageRepository instanceof $pageRepoClassName) {
@@ -568,7 +533,7 @@ class DceRepository extends Repository
                 }
             }
             foreach ($recordRows as $row) {
-                if ($dceFieldConfiguration['dce_enable_autotranslation'] ?? false) {
+                if ($dceFieldConfiguration['dce_enable_autotranslation']) {
                     if ('pages' === $tableName) {
                         $row = $pageRepository->getPageOverlay($row);
                     } else {
@@ -576,7 +541,7 @@ class DceRepository extends Repository
                             $tableName,
                             $row,
                             $this->getSysLanguageUid(),
-                            isset($GLOBALS['TSFE']) ? $GLOBALS['TSFE']->tmpl->setup['config.']['sys_language_overlay'] : ''
+                            $GLOBALS['TSFE']->tmpl->setup['config.']['sys_language_overlay']
                         );
                     }
                 }
@@ -718,12 +683,11 @@ class DceRepository extends Repository
     public function getDceInstance(int $contentElementUid, ?array $contentObject = null): Dce
     {
         $contentObject = $contentObject ?? $this->getContentObject($contentElementUid);
-        $dceUid = $this->extractUidFromCTypeOrIdentifier($contentObject['CType']);
+        $uid = $this->extractUidFromCTypeOrIdentifier($contentObject['CType']);
         $settings = $this->simulateContentElementSettings($contentObject['_LOCALIZED_UID'] ?? $contentObject['uid']);
-        $settings = $this->completeFieldList($settings, $dceUid);
 
         return $this->findAndBuildOneByUid(
-            $dceUid,
+            $uid,
             $settings,
             $contentObject
         );
@@ -753,25 +717,6 @@ class DceRepository extends Repository
         $flexData = FlexformService::get()->convertFlexFormContentToArray($row['pi_flexform'], 'lDEF', 'vDEF');
 
         return $flexData['settings'] ?? [];
-    }
-
-    public function completeFieldList(array $fieldList, int $dceUid): array
-    {
-        $queryBuilder = DatabaseUtility::getConnectionPool()->getQueryBuilderForTable('tx_dce_domain_model_dcefield');
-        $fieldRows = $queryBuilder
-            ->select('variable')
-            ->from('tx_dce_domain_model_dcefield')
-            ->where($queryBuilder->expr()->eq('parent_dce', $queryBuilder->createNamedParameter($dceUid)))
-            ->execute()
-            ->fetchAll();
-
-        foreach ($fieldRows as $fieldRow) {
-            if (!array_key_exists($fieldRow['variable'], $fieldList)) {
-                $fieldList[$fieldRow['variable']] = '';
-            }
-        }
-
-        return $fieldList;
     }
 
     /**

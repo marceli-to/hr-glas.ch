@@ -75,13 +75,10 @@ class DceController extends ActionController
             ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK
         );
 
-        $dceUid = $this->dceRepository::extractUidFromCTypeOrIdentifier('dce_' . $config['pluginName']);
-        $fieldList = $this->dceRepository->completeFieldList($this->settings, $dceUid);
-
         /** @var Dce $dce */
         $dce = $this->dceRepository->findAndBuildOneByUid(
-            $dceUid,
-            $fieldList,
+            $this->dceRepository::extractUidFromCTypeOrIdentifier('dce_' . $config['pluginName']),
+            $this->settings,
             $contentObject
         );
 

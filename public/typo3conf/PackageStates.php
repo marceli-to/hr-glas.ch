@@ -74,9 +74,6 @@ return [
         'info' => [
             'packagePath' => 'typo3/sysext/info/',
         ],
-        'lowlevel' => [
-            'packagePath' => 'typo3/sysext/lowlevel/',
-        ],
         'seo' => [
             'packagePath' => 'typo3/sysext/seo/',
         ],

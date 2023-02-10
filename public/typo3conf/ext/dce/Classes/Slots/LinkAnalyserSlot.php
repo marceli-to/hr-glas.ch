@@ -10,7 +10,6 @@ namespace T3\Dce\Slots;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Core\Utility\StringUtility;
 use TYPO3\CMS\Linkvalidator\LinkAnalyzer;
 
 /**
@@ -33,24 +32,15 @@ class LinkAnalyserSlot
             if (0 !== strpos($rawRecord['CType'], 'dce_')) {
                 return [$results, $record, $table, $fields, $linkAnalyser];
             }
-            /** @var array|string $flexformArray */
-            $flexformArray = GeneralUtility::xml2array($record['pi_flexform']);
-            if (is_string($flexformArray)) {
-                return [$results, $record, $table, $fields, $linkAnalyser];
-            }
-            $flexformData = ArrayUtility::flatten($flexformArray);
-
+            $flexformData = ArrayUtility::flatten(
+                GeneralUtility::xml2array($record['pi_flexform'])
+            );
             $newFlexformContent = '';
-            foreach ($flexformData as $key => $fieldValue) {
-                if (!StringUtility::endsWith($key, 'vDEF')) {
-                    continue;
-                }
-
-                if (!empty($fieldValue) && !is_numeric($fieldValue) && false !== strpos($fieldValue, '://')) {
+            foreach ($flexformData as $fieldValue) {
+                if (!empty($fieldValue) && !is_numeric($fieldValue)) {
                     // Check for typolink (string, without new lines or < > signs)
                     if (\is_string($fieldValue) &&
                         false === strpos($fieldValue, "\n") &&
-                        false === strpos($fieldValue, ' ') &&
                         false === strpos($fieldValue, '<') &&
                         false === strpos($fieldValue, '>')
                     ) {
@@ -60,7 +50,7 @@ class LinkAnalyserSlot
                 }
             }
             $record['pi_flexform'] = $newFlexformContent;
-            $GLOBALS['TCA'][$table]['columns']['pi_flexform']['config']['softref'] = 'typolink_tag,url';
+            $GLOBALS['TCA'][$table]['columns']['pi_flexform']['config']['softref'] = 'typolink,typolink_tag,images,url';
         }
 
         return [$results, $record, $table, $fields, $linkAnalyser];

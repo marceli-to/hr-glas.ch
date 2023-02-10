@@ -18,8 +18,7 @@
 	},
 	"require": {
 		"helhum/typo3-console": "^7.0.2",
-		"t3/dce": "^2.9",
-		"typo3/cms-backend": "^11.5.0",
+    "typo3/cms-backend": "^11.5.0",
 		"typo3/cms-belog": "^11.5.0",
 		"typo3/cms-beuser": "^11.5.0",
 		"typo3/cms-core": "^11.5.0",
@@ -43,9 +42,9 @@
 		"typo3/cms-t3editor": "^11.5.0",
 		"typo3/cms-tstemplate": "^11.5.0",
 		"typo3/cms-viewpage": "^11.5.0",
+		"t3/dce": "2.8.2",
 		"jamondigital/jd-ogmeta": "dev-master",
-		"jamondigital/rte-config": "dev-master",
-		"typo3/cms-lowlevel": "^11.5"
+		"jamondigital/rte-config": "dev-master"
 	},
 	"scripts":{
 		"typo3-cms-scripts": [

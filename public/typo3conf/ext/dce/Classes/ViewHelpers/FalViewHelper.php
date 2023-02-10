@@ -60,8 +60,10 @@ class FalViewHelper extends AbstractViewHelper
     public function render()
     {
         $contentObjectUid = (int)$this->arguments['contentObject']['uid'];
-        if (isset($this->arguments['localizedUid']) && ($this->arguments['contentObject']['_LOCALIZED_UID'] ?? null)) {
-            $contentObjectUid = (int) $this->arguments['contentObject']['_LOCALIZED_UID'];
+        if ($this->arguments['localizedUid']) {
+            $contentObjectUid = (int)(null !== $this->arguments['contentObject']['_LOCALIZED_UID'])
+                ? $this->arguments['contentObject']['_LOCALIZED_UID']
+                : $this->arguments['contentObject']['uid'];
         }
 
         if ($this->arguments['uid'] > 0) {

@@ -12,7 +12,7 @@ use TYPO3\CMS\Core\Database\Query\Expression\CompositeExpression;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 
 /**
- * XClass LiveSearch
+ * XClass LiveSearch.
  */
 class LiveSearch extends \TYPO3\CMS\Backend\Search\LiveSearch\LiveSearch
 {
@@ -28,7 +28,7 @@ class LiveSearch extends \TYPO3\CMS\Backend\Search\LiveSearch\LiveSearch
      *
      * @return CompositeExpression|string
      */
-    protected function makeQuerySearchByTable(QueryBuilder $queryBuilder, $tableName, array $fieldsToSearchWithin)
+    protected function makeQuerySearchByTable(QueryBuilder &$queryBuilder, $tableName, array $fieldsToSearchWithin)
     {
         $whereClause = (string)parent::makeQuerySearchByTable($queryBuilder, $tableName, $fieldsToSearchWithin);
         if ('tt_content' === $tableName) {

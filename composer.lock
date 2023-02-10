@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f89a4ae7417219064e420e3e2fea2aff",
+    "content-hash": "17d3f783c6b21ba0c996d01b5ff24bbc",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1422,7 +1422,7 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/rte_config",
-                "reference": "070202349333d3e5b7a62dfa6f7179d103bc3a66"
+                "reference": "e32697db1dbfb1ac7419404e16d60dc357d40108"
             },
             "require": {
                 "typo3/cms-core": "^11.5"
@@ -5101,26 +5101,26 @@
         },
         {
             "name": "t3/dce",
-            "version": "2.9.3",
+            "version": "2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/a-r-m-i-n/dce.git",
-                "reference": "f35363f63706d3a84a78add14e3b1bb227964360"
+                "reference": "f8cce9f94a2da96039639c363caea32e891d15d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a-r-m-i-n/dce/zipball/f35363f63706d3a84a78add14e3b1bb227964360",
-                "reference": "f35363f63706d3a84a78add14e3b1bb227964360",
+                "url": "https://api.github.com/repos/a-r-m-i-n/dce/zipball/f8cce9f94a2da96039639c363caea32e891d15d9",
+                "reference": "f8cce9f94a2da96039639c363caea32e891d15d9",
                 "shasum": ""
             },
             "require": {
-                "ext-dom": "*",
                 "ext-json": "*",
                 "php": ">=7.3",
                 "typo3/cms-core": "^9.5 || ^10.4 || ^11.0"
             },
             "replace": {
-                "arminvieweg/dce": "*"
+                "arminvieweg/dce": "*",
+                "typo3-ter/dce": "*"
             },
             "require-dev": {
                 "armin/editorconfig-cli": "^1.5",
@@ -5176,7 +5176,7 @@
                 "issues": "https://github.com/a-r-m-i-n/dce/issues",
                 "source": "https://github.com/a-r-m-i-n/dce"
             },
-            "time": "2022-10-15T10:11:22+00:00"
+            "time": "2022-03-28T16:24:01+00:00"
         },
         {
             "name": "typo3/class-alias-loader",
@@ -6424,65 +6424,6 @@
                 }
             ],
             "description": "The Install Tool mounted as the module Tools>Install in TYPO3.",
-            "homepage": "https://typo3.org",
-            "support": {
-                "chat": "https://typo3.org/help",
-                "docs": "https://docs.typo3.org",
-                "issues": "https://forge.typo3.org",
-                "source": "https://github.com/typo3/typo3"
-            },
-            "time": "2023-02-07T10:17:48+00:00"
-        },
-        {
-            "name": "typo3/cms-lowlevel",
-            "version": "v11.5.23",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TYPO3-CMS/lowlevel.git",
-                "reference": "5d274f215280f436ed48e06e01c61d3fa1796978"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TYPO3-CMS/lowlevel/zipball/5d274f215280f436ed48e06e01c61d3fa1796978",
-                "reference": "5d274f215280f436ed48e06e01c61d3fa1796978",
-                "shasum": ""
-            },
-            "require": {
-                "typo3/cms-core": "11.5.23"
-            },
-            "conflict": {
-                "typo3/cms": "*"
-            },
-            "type": "typo3-cms-framework",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "11.5.x-dev"
-                },
-                "typo3/cms": {
-                    "Package": {
-                        "serviceProvider": "TYPO3\\CMS\\Lowlevel\\ServiceProvider",
-                        "partOfFactoryDefault": true
-                    },
-                    "extension-key": "lowlevel"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TYPO3\\CMS\\Lowlevel\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "TYPO3 Core Team",
-                    "email": "typo3cms@typo3.org",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Enables the 'Config' and 'DB Check' modules for technical analysis of the system. This includes raw database search, checking relations, counting pages and records etc.",
             "homepage": "https://typo3.org",
             "support": {
                 "chat": "https://typo3.org/help",
