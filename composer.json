@@ -14,7 +14,8 @@
 		},
 		"platform": {
 			"php": "7.4.1"
-		}
+		},
+    "platform-check": false
 	},
 	"require": {
 		"helhum/typo3-console": "^7.0.2",
