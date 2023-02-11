@@ -5,4 +5,5 @@
 .DS_Store
 /var/log/*
 /var/session/*
+/var/cache/*
 /public/typo3conf/LocalConfiguration.php
