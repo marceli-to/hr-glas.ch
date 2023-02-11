@@ -1,10 +1,7 @@
 <?php
 
-$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
-    0 => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce_long',
-    1 => '--div--'
-];
-$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
+$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['itemGroups']['dce'] =
+    'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce_long';$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
     0 => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce.miscellaneous',
     1 => '--div--'
 ];
@@ -15,12 +12,13 @@ $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['items'][] = [
         'Gallery',
         'dce_gallery',
         'content-textpic',
+        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_gallery'] = 'content-textpic';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_gallery'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_gallery'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_gallery'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.elements><title><![CDATA[Elemente]]></title><tx_templatevoila><title><![CDATA[Elemente]]></title></tx_templatevoila><section>1</section><type>array</type><el><container_elements><type>array</type><title><![CDATA[Element]]></title><tx_templatevoila><title><![CDATA[Elemente]]></title></tx_templatevoila><el><image><TCEforms><label><![CDATA[Bild]]></label><config>
 	<type>group</type>
@@ -72,6 +70,7 @@ $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_ga
 	<eval>trim</eval>
 </config></TCEforms></btnText><type><TCEforms><label><![CDATA[Typ]]></label><config>
 	<type>select</type>
+	<renderType>selectSingle</renderType>
 	<items type="array">
 		<numIndex index="0" type="array">
 			<numIndex index="0">Bild</numIndex>
@@ -110,12 +109,13 @@ $GLOBALS['TCA']['tt_content']['palettes']['dce_palette_dce_gallery']['showitem']
         'Teasers',
         'dce_teasers0',
         'content-textpic',
+        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_teasers0'] = 'content-textpic';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_teasers0'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_teasers0'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_teasers0'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.title><TCEforms><label><![CDATA[Titel]]></label><config>
 	<type>input</type>
@@ -179,12 +179,13 @@ $GLOBALS['TCA']['tt_content']['palettes']['dce_palette_dce_teasers0']['showitem'
         'Team',
         'dce_team',
         'content-textpic',
+        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_team'] = 'content-textpic';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_team'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_team'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_team'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.title><TCEforms><label><![CDATA[Titel]]></label><config>
 	<type>input</type>
@@ -238,12 +239,13 @@ $GLOBALS['TCA']['tt_content']['palettes']['dce_palette_dce_team']['showitem'] = 
         'Visual',
         'dce_visual',
         'content-textpic',
+        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_visual'] = 'content-textpic';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_visual'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_visual'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_visual'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.image><TCEforms><label><![CDATA[Bild]]></label><config>
 	<type>inline</type>
@@ -256,22 +258,26 @@ $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_vi
 	</foreign_match_fields>
 	<foreign_label>uid_local</foreign_label>
 	<foreign_selector>uid_local</foreign_selector>
-	<foreign_selector_fieldTcaOverride>
-		<config>
-			<appearance>
-				<elementBrowserType>file</elementBrowserType>
-				<elementBrowserAllowed>gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg</elementBrowserAllowed>
-			</appearance>
-		</config>
-	</foreign_selector_fieldTcaOverride>
-	<foreign_types type="array">
-		<numIndex index="2">
-			<showitem>--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,--palette--;;filePalette</showitem>
-		</numIndex>
-	</foreign_types>
+	<overrideChildTca>
+		<columns>
+			<uid_local>
+				<config>
+					<appearance>
+						<elementBrowserType>file</elementBrowserType>
+						<elementBrowserAllowed>gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg</elementBrowserAllowed>
+					</appearance>
+				</config>
+			</uid_local>
+		</columns>
+		<types type="array">
+			<numIndex index="2">
+				<showitem>--palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,--palette--;;filePalette</showitem>
+			</numIndex>
+		</types>
+	</overrideChildTca>
 
-	<minitems>1</minitems>
-	<maxitems>1</maxitems>
+	<minitems>0</minitems>
+	<maxitems>99</maxitems>
 
 	<appearance>
 		<useSortable>1</useSortable>
@@ -281,26 +287,20 @@ $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_vi
 			<height>45</height>
 		</headerThumbnail>
 
-		<showPossibleLocalizationRecords>0</showPossibleLocalizationRecords>
-		<showRemovedLocalizationRecords>0</showRemovedLocalizationRecords>
-		<showSynchronizationLink>0</showSynchronizationLink>
-		<useSortable>1</useSortable>
 		<enabledControls>
 			<info>1</info>
-			<new>0</new>
-			<dragdrop>0</dragdrop>
-			<sort>1</sort>
+			<dragdrop>1</dragdrop>
 			<hide>1</hide>
+			<new>0</new>
+			<sort>0</sort>
 			<delete>1</delete>
-			<localize>1</localize>
 		</enabledControls>
 
 		<createNewRelationLinkTitle>LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference</createNewRelationLinkTitle>
 	</appearance>
 
 	<behaviour>
-		<localizationMode>select</localizationMode>
-		<localizeChildrenAtParentLocalization>1</localizeChildrenAtParentLocalization>
+		<allowLanguageSynchronization>1</allowLanguageSynchronization>
 	</behaviour>
 
 	<dce_load_schema>1</dce_load_schema>
@@ -329,12 +329,13 @@ $GLOBALS['TCA']['tt_content']['palettes']['dce_palette_dce_visual']['showitem'] 
         'Quotes',
         'dce_quotes',
         'content-special-html',
+        \T3\Dce\Compatibility::isTypo3Version('10.4') ? 'dce' : null
     ]
 );
 
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['dce_quotes'] = 'content-special-html';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['dce_quotes'] = 'pi_flexform';
-$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][',dce_quotes'] = <<<XML
+$GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds']['*,dce_quotes'] = <<<XML
 <?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.quotes><title><![CDATA[Quotes]]></title><tx_templatevoila><title><![CDATA[Quotes]]></title></tx_templatevoila><section>1</section><type>array</type><el><container_quotes><type>array</type><title><![CDATA[Quote]]></title><tx_templatevoila><title><![CDATA[Quotes]]></title></tx_templatevoila><el><text><TCEforms><label><![CDATA[Zitat]]></label><config>
 	<type>text</type>

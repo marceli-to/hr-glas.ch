@@ -8323,43 +8323,43 @@ return array (
               ),
               29 => 
               array (
-                0 => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce_long',
+                0 => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce.miscellaneous',
                 1 => '--div--',
               ),
               30 => 
               array (
-                0 => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce.miscellaneous',
-                1 => '--div--',
-              ),
-              31 => 
-              array (
                 0 => 'Gallery',
                 1 => 'dce_gallery',
                 2 => 'content-textpic',
+                3 => 'dce',
               ),
-              32 => 
+              31 => 
               array (
                 0 => 'Teasers',
                 1 => 'dce_teasers0',
                 2 => 'content-textpic',
+                3 => 'dce',
               ),
-              33 => 
+              32 => 
               array (
                 0 => 'Team',
                 1 => 'dce_team',
                 2 => 'content-textpic',
+                3 => 'dce',
               ),
-              34 => 
+              33 => 
               array (
                 0 => 'Visual',
                 1 => 'dce_visual',
                 2 => 'content-textpic',
+                3 => 'dce',
               ),
-              35 => 
+              34 => 
               array (
                 0 => 'Quotes',
                 1 => 'dce_quotes',
                 2 => 'content-special-html',
+                3 => 'dce',
               ),
             ),
             'itemGroups' => 
@@ -8369,6 +8369,7 @@ return array (
               'menu' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.div.menu',
               'forms' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.div.forms',
               'special' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:CType.div.special',
+              'dce' => 'LLL:EXT:dce/Resources/Private/Language/locallang_db.xlf:tx_dce_domain_model_dce_long',
             ),
             'default' => 'text',
             'authMode' => 'explicitAllow',
@@ -9746,7 +9747,7 @@ return array (
                     ',
               '*,form_formframework' => 'FILE:EXT:form/Configuration/FlexForms/FormFramework.xml',
               '*,felogin_login' => 'FILE:EXT:felogin/Configuration/FlexForms/Login.xml',
-              ',dce_gallery' => '<?xml version="1.0"?>
+              '*,dce_gallery' => '<?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.elements><title><![CDATA[Elemente]]></title><tx_templatevoila><title><![CDATA[Elemente]]></title></tx_templatevoila><section>1</section><type>array</type><el><container_elements><type>array</type><title><![CDATA[Element]]></title><tx_templatevoila><title><![CDATA[Elemente]]></title></tx_templatevoila><el><image><TCEforms><label><![CDATA[Bild]]></label><config>
 	<type>group</type>
 	<internal_type>db</internal_type>
@@ -9797,6 +9798,7 @@ return array (
 	<eval>trim</eval>
 </config></TCEforms></btnText><type><TCEforms><label><![CDATA[Typ]]></label><config>
 	<type>select</type>
+	<renderType>selectSingle</renderType>
 	<items type="array">
 		<numIndex index="0" type="array">
 			<numIndex index="0">Bild</numIndex>
@@ -9814,7 +9816,7 @@ return array (
 <!-- <onChange>reload</onChange> -->
 </TCEforms></type></el></container_elements></el></settings.elements></el></ROOT></sheet.tabGeneral></sheets></T3DataStructure>
 ',
-              ',dce_teasers0' => '<?xml version="1.0"?>
+              '*,dce_teasers0' => '<?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.title><TCEforms><label><![CDATA[Titel]]></label><config>
 	<type>input</type>
 	<size>30</size>
@@ -9856,7 +9858,7 @@ return array (
 </config>
 </TCEforms></link></el></container_teasers></el></settings.teasers></el></ROOT></sheet.tabGeneral></sheets></T3DataStructure>
 ',
-              ',dce_team' => '<?xml version="1.0"?>
+              '*,dce_team' => '<?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.title><TCEforms><label><![CDATA[Titel]]></label><config>
 	<type>input</type>
 	<size>30</size>
@@ -9888,7 +9890,7 @@ return array (
 	<eval>trim,required</eval>
 </config></TCEforms></text></el></container_teammembers></el></settings.teammembers></el></ROOT></sheet.tabGeneral></sheets></T3DataStructure>
 ',
-              ',dce_visual' => '<?xml version="1.0"?>
+              '*,dce_visual' => '<?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.image><TCEforms><label><![CDATA[Bild]]></label><config>
 	<type>inline</type>
 	<foreign_table>sys_file_reference</foreign_table>
@@ -9900,22 +9902,26 @@ return array (
 	</foreign_match_fields>
 	<foreign_label>uid_local</foreign_label>
 	<foreign_selector>uid_local</foreign_selector>
-	<foreign_selector_fieldTcaOverride>
-		<config>
-			<appearance>
-				<elementBrowserType>file</elementBrowserType>
-				<elementBrowserAllowed>gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg</elementBrowserAllowed>
-			</appearance>
-		</config>
-	</foreign_selector_fieldTcaOverride>
-	<foreign_types type="array">
-		<numIndex index="2">
-			<showitem>--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,--palette--;;filePalette</showitem>
-		</numIndex>
-	</foreign_types>
+	<overrideChildTca>
+		<columns>
+			<uid_local>
+				<config>
+					<appearance>
+						<elementBrowserType>file</elementBrowserType>
+						<elementBrowserAllowed>gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg</elementBrowserAllowed>
+					</appearance>
+				</config>
+			</uid_local>
+		</columns>
+		<types type="array">
+			<numIndex index="2">
+				<showitem>--palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,--palette--;;filePalette</showitem>
+			</numIndex>
+		</types>
+	</overrideChildTca>
 
-	<minitems>1</minitems>
-	<maxitems>1</maxitems>
+	<minitems>0</minitems>
+	<maxitems>99</maxitems>
 
 	<appearance>
 		<useSortable>1</useSortable>
@@ -9925,26 +9931,20 @@ return array (
 			<height>45</height>
 		</headerThumbnail>
 
-		<showPossibleLocalizationRecords>0</showPossibleLocalizationRecords>
-		<showRemovedLocalizationRecords>0</showRemovedLocalizationRecords>
-		<showSynchronizationLink>0</showSynchronizationLink>
-		<useSortable>1</useSortable>
 		<enabledControls>
 			<info>1</info>
-			<new>0</new>
-			<dragdrop>0</dragdrop>
-			<sort>1</sort>
+			<dragdrop>1</dragdrop>
 			<hide>1</hide>
+			<new>0</new>
+			<sort>0</sort>
 			<delete>1</delete>
-			<localize>1</localize>
 		</enabledControls>
 
 		<createNewRelationLinkTitle>LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference</createNewRelationLinkTitle>
 	</appearance>
 
 	<behaviour>
-		<localizationMode>select</localizationMode>
-		<localizeChildrenAtParentLocalization>1</localizeChildrenAtParentLocalization>
+		<allowLanguageSynchronization>1</allowLanguageSynchronization>
 	</behaviour>
 
 	<dce_load_schema>1</dce_load_schema>
@@ -9952,7 +9952,7 @@ return array (
 </config>
 </TCEforms></settings.image></el></ROOT></sheet.tabGeneral></sheets></T3DataStructure>
 ',
-              ',dce_quotes' => '<?xml version="1.0"?>
+              '*,dce_quotes' => '<?xml version="1.0"?>
 <T3DataStructure><meta><langDisable>1</langDisable><langDatabaseOverlay>1</langDatabaseOverlay></meta><sheets><sheet.tabGeneral><ROOT><sheetTitle><![CDATA[LLL:EXT:dce/Resources/Private/Language/locallang.xlf:generaltab]]></sheetTitle><type>array</type><el><settings.quotes><title><![CDATA[Quotes]]></title><tx_templatevoila><title><![CDATA[Quotes]]></title></tx_templatevoila><section>1</section><type>array</type><el><container_quotes><type>array</type><title><![CDATA[Quote]]></title><tx_templatevoila><title><![CDATA[Quotes]]></title></tx_templatevoila><el><text><TCEforms><label><![CDATA[Zitat]]></label><config>
 	<type>text</type>
 	<rows>5</rows>
